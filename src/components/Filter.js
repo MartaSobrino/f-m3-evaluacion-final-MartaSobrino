@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Filter extends React.Component{
     render(){
@@ -8,5 +9,9 @@ class Filter extends React.Component{
         );
     }
 }
+
+Filter.propTypes = {
+    changeInput: PropTypes.func
+  };
 
 export default Filter;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 class CharacterList extends React.Component{
@@ -20,4 +21,10 @@ class CharacterList extends React.Component{
         );
     }
 }
+
+CharacterList.propTypes = {
+    characters: PropTypes.array,
+    filterName: PropTypes.string,
+  };
+
 export default CharacterList;

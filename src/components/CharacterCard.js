@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 class CharacterCard extends React.Component{
@@ -38,4 +39,9 @@ class CharacterCard extends React.Component{
         );
     }
 }
+
+CharacterCard.propTypes = {
+    characters: PropTypes.array
+  };
+
 export default CharacterCard;

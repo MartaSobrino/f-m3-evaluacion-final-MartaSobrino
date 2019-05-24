@@ -48,7 +48,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" render={() =>
               <React.Fragment>
-                  <Filter changeInput={this.changeInput} />
+                  <Filter changeInput={this.handleInput} />
                   <CharacterList 
                       characters={this.state.characters} 
                       filterName={this.state.filterName}
