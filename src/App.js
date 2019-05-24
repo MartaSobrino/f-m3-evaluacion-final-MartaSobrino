@@ -1,6 +1,10 @@
 import React from 'react';
 import './App.scss';
 import {data} from './services/data';
+import Filter from './components/Filter';
+import CharacterList from './components/CharacterList';
+import CharacterCard from './components/CharacterCard';
+import {Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -39,19 +43,27 @@ class App extends React.Component {
   render(){
       return (
         <div className="App">
-        <h1 className="main_title">Harry Potter</h1>
-        <input type="text" name="" id="" className="seacrh__input" onChange={this.handleInput}/>
-        <h2 className="subtitle">Main Characters</h2>
-          <ul className="cads__container">
-              {this.state.characters
-              .filter(item => item.name.toUpperCase().includes(this.state.filterName.toUpperCase()))
-              .map(item => 
-              <li className="character__card" key={item.id}>
-                <h2 className="character__name">{item.name}</h2>
-                <img src={item.image} alt="" className="character__image"/>
-                <p className="character__house">{item.house}</p>
-              </li>)}
-          </ul>
+          <h1 className="main_title">Harry Potter</h1>
+          <h2 className="subtitle">Main Characters</h2>
+          <Switch>
+            <Route exact path="/" render={() =>
+              <React.Fragment>
+                  <Filter changeInput={this.changeInput} />
+                  <CharacterList 
+                      characters={this.state.characters} 
+                      filterName={this.state.filterName}
+                  />           
+              </React.Fragment>
+            }  
+            />
+            <Route path="/detail/:id" render={parameter => 
+              <CharacterCard 
+                param={parameter}
+                characters={this.state.characters}
+              />
+            }  />
+
+          </Switch>
         </div>
       );
     }
