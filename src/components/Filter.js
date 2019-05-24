@@ -8,7 +8,11 @@ class Filter extends React.Component{
         return(
             <div className="search__section">
                 <div className="search__container">
-                    <input type="text" name="" id="" className="seacrh__input" onChange={changeInput}/>
+                    <label htmlFor="filter">Busca tu personaje favorito de la saga</label>
+                    <div className="inner-addon right-addon">
+                        <i className="glyphicon glyphicon-search fas fa-search"></i>
+                        <input type="text" name="filter__name" id="filter" className="seacrh__input" onChange={changeInput} placeholder="intrduce aquí el nombre" />
+                    </div>
                 </div>
             </div>
         );

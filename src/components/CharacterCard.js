@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import './CharacterCards.scss';
 
 class CharacterCard extends React.Component{
     render(){
@@ -11,8 +12,8 @@ class CharacterCard extends React.Component{
         return(
             <React.Fragment>
                 {newData ?
-                        <div className="container__detail">
-                        <h2 className="character__name">{newData.name}</h2>
+                    <div className="container__detail">
+                    <h2 className="character__name">{newData.name}</h2>
                         <ul className="character__detail__container">
                             <li>
                                 <img src={newData.image} alt="" className="character__image"/>

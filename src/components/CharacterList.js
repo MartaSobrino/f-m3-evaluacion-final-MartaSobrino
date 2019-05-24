@@ -12,12 +12,12 @@ class CharacterList extends React.Component{
                     {characters
                     .filter(item => item.name.toUpperCase().includes(filterName.toUpperCase()))
                     .map(item => 
-                    <li className="character__card" key={item.id}>
-                        <h2 className="character__name">{item.name}</h2>
-                        <img src={item.image} alt={`imagen ${item.name}`} className="character__image"/>
-                        <p className="character__house">{item.house}</p> 
-                    <Link to={`/detail/${item.id}`}>Ver detalles sobre {item.name}</Link>  
-                    </li>
+                        <li className={`character__card ${item.house==='Gryffindor' ? 'gryffindor': ''}`} key={item.id}>
+                            <h2 className="character__name">{item.name}</h2>
+                            <img src={item.image} alt={`imagen ${item.name}`} className="character__image"/>
+                            <p className="character__house">{item.house}</p> 
+                        <Link className="more__info" to={`/detail/${item.id}`}>Más info de {item.name} <i class="fas fa-chevron-right"></i></Link>  
+                        </li>
                     )}
                 </ul>
             </div>
