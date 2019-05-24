@@ -27,7 +27,7 @@ class CharacterCard extends React.Component{
                                 <p className="character__patronus">{newData.patronus}</p>
                             </li>
                             <li>
-                                {newData.alive ? <p>¡Sigue vivo! <span role="img" aria-label="emoticono sonriente estado vivo personaje">😀</span></p> : <p role="img" aria-label="emoticono calavera estado muerto personaje">Muerto <span>☠️ </span></p> }
+                                {newData.alive ? <p>¡Sigue vivo! <span role="img" aria-label="emoticono sonriente estado vivo personaje">😀</span></p> : <p>Muerto <span role="img" aria-label="emoticono calavera estado muerto personaje">☠️ </span></p> }
                             </li>
                         </ul>
                     </div>
