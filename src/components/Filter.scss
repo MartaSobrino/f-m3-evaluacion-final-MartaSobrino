@@ -7,8 +7,22 @@
     margin: 0 auto;
     color: white;
     display: flex;
+    @media all and (max-width:768px) {
+      max-width: 650px;
+    }
+    @media all and (max-width:375px) {
+      flex-direction: column;
+    }
     .seacrh__input {
         margin: 0 20px;
+        @media all and (max-width:375px) {
+          height: 30px;
+        }
+    }
+    .fa-search {
+      @media all and (max-width:375px) {
+        display: none;
+      }
     }
     .input__text {
         margin: 0;
@@ -17,6 +31,10 @@
 }
 .inner-addon {
     position: relative;
+    @media all and (max-width:375px) {
+      margin: 0 auto;
+      margin-top: 5%;
+    }
   }
   .inner-addon .glyphicon {
     position: absolute;
@@ -36,4 +54,9 @@
   }
   .right-addon input {
     padding-right: 30px;
+  }
+  .label__input{
+    @media all and (max-width:375px) {
+      margin: 0 auto;
+    }
   }

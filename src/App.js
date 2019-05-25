@@ -15,6 +15,7 @@ class App extends React.Component {
       filterName: ''
     }
     this.handleInput = this.handleInput.bind(this);
+    this.resetFilters = this.resetFilters.bind(this);
   }
   
   fetchNewReasons() {
@@ -40,6 +41,12 @@ class App extends React.Component {
     });
   }
 
+  resetFilters() {
+    this.setState({
+      filterName: ''
+    });
+  }
+
   render(){
       return (
         <div className="App">
@@ -55,7 +62,9 @@ class App extends React.Component {
               <Switch>
               <Route exact path="/" render={() =>
                 <React.Fragment>
-                    <Filter changeInput={this.handleInput} />
+                    <Filter 
+                      changeInput={this.handleInput}
+                    />
                     <CharacterList 
                         characters={this.state.characters} 
                         filterName={this.state.filterName}
@@ -66,12 +75,14 @@ class App extends React.Component {
               <Route path="/detail/:id" render={parameter => 
                 <CharacterCard 
                   param={parameter}
-                  characters={this.state.characters}
+                  characters={this.state.characters} 
+                  reset={this.resetFilters} 
                 />
               }  />
 
               </Switch>
           </main>
+          <footer className="footer"><small>©2019. Marta Sobrino</small></footer>
         </div>
       );
     }
