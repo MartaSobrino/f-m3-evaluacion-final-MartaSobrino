@@ -64,7 +64,7 @@ class App extends React.Component {
           <header className="header">
             <div className="header__container">
               <div className="title__container">
-                <h1 className="main_title"><img src="http://www.stickpng.com/assets/images/580b57fbd9996e24bc43bd6a.png" alt="logotipo Harry Potter"/></h1>
+                <h1 className="main_title"><img src="https://www.stickpng.com/assets/images/580b57fbd9996e24bc43bd6a.png" alt="logotipo Harry Potter"/></h1>
               </div>
               <div className="img__contain"></div>
             </div>           
