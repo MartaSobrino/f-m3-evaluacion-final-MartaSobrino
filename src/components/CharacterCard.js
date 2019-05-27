@@ -40,7 +40,6 @@ class CharacterCard extends React.Component{
     render(){
         const {characters} = this.props;
         const newId = this.props.param.match.params.id;
-        // vero preguntas corchetes
         const newData = characters[newId];
         return(
             <React.Fragment>
