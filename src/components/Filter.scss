@@ -60,3 +60,14 @@
       margin: 0 auto;
     }
   }
+  .search__select{
+    width: 300px;
+  }
+.filter__select {
+  margin-right: 2%;
+  // @media all and (max-width: 375px){
+  //   #house__select {
+  //     max-width: 50px;
+  //   }
+  // }
+}

@@ -12,10 +12,12 @@ class App extends React.Component {
     super(props);
     this.state= {
       characters: [],
-      filterName: ''
+      filterName: '',
+      filterHouse: 'all'
     }
     this.handleInput = this.handleInput.bind(this);
     this.resetFilters = this.resetFilters.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
   
   fetchNewReasons() {
@@ -41,13 +43,22 @@ class App extends React.Component {
     });
   }
 
+  handleSelect(event){
+    const trigger = event.currentTarget.value;
+    this.setState({
+      filterHouse: trigger
+    });
+  }
+
   resetFilters() {
     this.setState({
-      filterName: ''
+      filterName: '',
+      filterHouse: 'all'
     });
   }
 
   render(){
+    const {characters, filterName, filterHouse } = this.state;
       return (
         <div className="App">
           <header className="header">
@@ -64,10 +75,12 @@ class App extends React.Component {
                 <React.Fragment>
                     <Filter 
                       changeInput={this.handleInput}
+                      changeSelect={this.handleSelect}
                     />
                     <CharacterList 
-                        characters={this.state.characters} 
-                        filterName={this.state.filterName}
+                      characters={characters} 
+                      filterName={filterName}
+                      filterHouse= {filterHouse}
                     />           
                 </React.Fragment>
               }  
@@ -75,7 +88,7 @@ class App extends React.Component {
               <Route path="/detail/:id" render={parameter => 
                 <CharacterCard 
                   param={parameter}
-                  characters={this.state.characters} 
+                  characters={characters} 
                   reset={this.resetFilters} 
                 />
               }  />
