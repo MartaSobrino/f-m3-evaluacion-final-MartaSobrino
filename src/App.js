@@ -14,11 +14,13 @@ class App extends React.Component {
     this.state= {
       characters: [],
       filterName: '',
-      filterHouse: 'all'
+      filterHouse: 'all',
+      filterYear: 0
     }
     this.handleInput = this.handleInput.bind(this);
     this.resetFilters = this.resetFilters.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.handleYear = this.handleYear.bind(this);
   }
   
   fetchNewReasons() {
@@ -51,6 +53,17 @@ class App extends React.Component {
     });
   }
 
+  handleYear(event){
+    let trigger = parseInt(event.currentTarget.value);
+    console.log(trigger);
+    if(isNaN(trigger)){
+      trigger = 0
+    }
+    this.setState({
+      filterYear: trigger
+    });
+  }
+
   resetFilters() {
     this.setState({
       filterName: '',
@@ -59,7 +72,7 @@ class App extends React.Component {
   }
 
   render(){
-    const {characters, filterName, filterHouse } = this.state;
+    const {characters, filterName, filterHouse, filterYear } = this.state;
       return (
         <div className="App">
           <header className="header">
@@ -77,11 +90,13 @@ class App extends React.Component {
                     <Filter 
                       changeInput={this.handleInput}
                       changeSelect={this.handleSelect}
+                      changeYear={this.handleYear}
                     />
                     <CharacterList 
                       characters={characters} 
                       filterName={filterName}
                       filterHouse= {filterHouse}
+                      filterYear= {filterYear}
                     />           
                 </React.Fragment>
               }  

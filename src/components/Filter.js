@@ -4,7 +4,7 @@ import './Filter.scss';
 
 class Filter extends React.Component{
     render(){
-        const {changeInput, changeSelect} = this.props;
+        const {changeInput, changeSelect, changeYear} = this.props;
         return(
             <div className="search__section">
                 <div className="search__container">
@@ -20,7 +20,11 @@ class Filter extends React.Component{
                         <option value="Slytherin">Slytherin</option>
                         <option value="Hufflepuff">Hufflepuff</option>
                         <option value="Ravenclaw">Ravenclaw</option>
-                    </select>   
+                    </select> 
+                    <div className="input__year">
+                        <label htmlFor="year" className="label__year"> Selecciona el año de nacimiento</label>
+                        <input type="number" name="year" id="year" onChange={changeYear} />
+                    </div>  
                 </div>           
             </div>
         );
@@ -28,7 +32,9 @@ class Filter extends React.Component{
 }
 
 Filter.propTypes = {
-    changeInput: PropTypes.func
+    changeInput: PropTypes.func,
+    changeSelect: PropTypes.func,
+    changchangeYeareInput: PropTypes.func
   };
 
 export default Filter;

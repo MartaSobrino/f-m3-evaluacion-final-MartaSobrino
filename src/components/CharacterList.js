@@ -5,13 +5,14 @@ import './CharacterList.scss';
 
 class CharacterList extends React.Component{
     render(){
-        const {characters, filterName, filterHouse} = this.props;
+        const {characters, filterName, filterHouse, filterYear} = this.props;
         return(
             <div className="main__container">
                 <ul className="cards__container">
                     {characters
                     .filter(item => item.name.toUpperCase().includes(filterName.toUpperCase()))
                     .filter(item => filterHouse === 'all' ? item : item.house === filterHouse)
+                    .filter(item => filterYear < item.yearOfBirth )
                     .map(item => 
                         <li className="character__card" key={item.id}>
                             <h2 className="character__name__list">{item.name}</h2>
@@ -29,6 +30,8 @@ class CharacterList extends React.Component{
 CharacterList.propTypes = {
     characters: PropTypes.array,
     filterName: PropTypes.string,
+    filterHouse: PropTypes.string,
+    filterYear: PropTypes.string
   };
 
 export default CharacterList;
