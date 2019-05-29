@@ -21,10 +21,10 @@ class Filter extends React.Component{
                         <option value="Hufflepuff">Hufflepuff</option>
                         <option value="Ravenclaw">Ravenclaw</option>
                     </select> 
-                    <div className="input__year">
+                    {/* <div className="input__year">
                         <label htmlFor="year" className="label__year"> Selecciona el año de nacimiento</label>
                         <input type="number" name="year" id="year" onChange={changeYear} />
-                    </div>  
+                    </div>   */}
                 </div>           
             </div>
         );
